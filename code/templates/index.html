@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<title>Common Sense Validator</title>
+</head>
+<body>
+
+  <div class="container-fluid">
+
+        <div class="row p-3 mb-2 bg-dark">
+						<!-- <span class="border border-dark"> -->
+							<div class="col-md-10 text-white name">
+								<strong>Common Sense Validator </strong>
+							</div>
+          </div>
+
+          <div class="row">
+            <div class="alert alert-primary" role="alert">
+              <ul>
+                <li> To predict Common sense score for single sentence, Enter text in Sentence 0</li>
+                <li> To compare common sense of two sentences, enter the sentences in the two input boxes </li>
+              </ul>
+              
+            </div>
+
+          </div>
+
+
+          <div class = "row">
+                <div class="col-2"> </div>
+                <div class="col-8">
+                    <form action="http://0846-35-236-170-159.ngrok.io/getprediction" method="POST">
+                      <label for="sent0">Sentence 0 :</label>
+                      <input type="text" id="sent0" name="sent0"><br><br>
+                      <label for="sent1">Sentence 1 :</label>
+                      <input type="text" id="sent1" name="sent1"><br><br>
+                      <div style="padding-left: 20%;">
+                            <button type="submit" class="btn btn-primary">Predict</button>      
+                        </div>
+                      <!-- <input type="submit" value="Submit"> -->
+                    </form>
+                </div>
+
+                <div> </div>
+            </div>
+	  </div>
+	
+  <br>
+  <br>
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col">
+      <p><strong>Input type : </strong>{{selection}}</p>
+    </div>
+    <div class="col"> </div>
+  </div>
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col">
+      <p><strong>Input : </strong>{{input_txt}}</p>
+    </div>
+    <div class="col"> </div>
+  </div>
+  <br>
+  <br>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Model</th>
+      <th scope="col">Prediction</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">BERT</th>
+      <td> {{bert}}</td>
+      <td> {{bert_sc}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">ALBERT</th>
+      <td> {{albert}}</td>
+      <td> {{albert_sc}}</td>
+    </tr>
+
+
+    <tr>
+      <th scope="row">RoBERTa</th>
+      <td> {{roberta}}</td>
+      <td> {{roberta_sc}}</td>
+    </tr>
+
+
+    <tr>
+      <th scope="row">XLNET</th>
+      <td> {{xlnet}}</td>
+      <td> {{xlnet_sc}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">S-BERT</th>
+      <td> {{sbert}}</td>
+      <td> {{sbert_sc}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  
+
+	
+	<!-- <br>
+	{{bert}}
+	<br>
+	{{albert}}
+	<br>
+	{{roberta}}
+	<br>
+	{{xlnet}}
+  <br>
+  {{sbert}}
+	<br>
+	{{embedding}}
+   -->
+</body>
+</html>
